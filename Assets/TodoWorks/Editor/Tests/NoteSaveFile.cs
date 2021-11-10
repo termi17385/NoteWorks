@@ -32,10 +32,10 @@ namespace TodoWorks.Editor.Tests
 		/// ie text, and the checklist </summary>
 		/// <param name="_title">the title / filename of the note</param>
 		/// <param name="_description">the notes description</param>
-		/// <param name="_data">the checklist data being saved to the note</param>
+		/// <param name="_names">the checklist data being saved to the note</param>
 		/// <param name="_bgColor">the color for the background of the title</param>
 		/// <param name="_ttColor">the color for the text of the title</param>
-		public void StoreData(string _title, string _description, string[] _data, Color _bgColor, Color _ttColor)
+		public void StoreData(string _title, string _description, string[] _names, Color _bgColor, Color _ttColor)
 		{
 			noteName = _title;
 			noteDescription = _description;
@@ -44,11 +44,30 @@ namespace TodoWorks.Editor.Tests
 			titleTextColor = _ttColor;
 
 			checkList.Clear();
-			for(int i = 0; i < _data.Length; i++)
+			for(int i = 0; i < _names.Length; i++)
 			{
 				checkList.Add(new CheckList
 				{
-					text = _data[i]
+					text = _names[i]
+				});
+			}
+		}
+		
+		public void UpdateData(string _title, string _description, string[] _names, bool[] _completed, Color _bgColor, Color _ttColor)
+		{
+			noteName = _title;
+			noteDescription = _description;
+
+			backgroundColor = _bgColor;
+			titleTextColor = _ttColor;
+
+			checkList.Clear();
+			for(int i = 0; i < _names.Length; i++)
+			{
+				checkList.Add(new CheckList
+				{
+					text = _names[i],
+					completed = _completed[i]
 				});
 			}
 		}

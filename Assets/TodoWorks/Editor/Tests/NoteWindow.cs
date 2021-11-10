@@ -3,6 +3,7 @@ using TodoWorks.Editor.Scripts;
 using UnityEditor;
 using UnityEngine;
 using System;
+using System.Linq;
 
 using TodoWorks.Editor.Utils;
 
@@ -78,10 +79,7 @@ namespace TodoWorks.Editor.Tests
 
 		private void Update()
 		{
-			if(closed)
-			{
-				this.Close();
-			}
+			if(closed) this.Close();
 		}
 
 		private void OnGUI()
@@ -108,6 +106,26 @@ namespace TodoWorks.Editor.Tests
 			if(GUILayout.Button("Delete", GUILayout.Width(48)))
 			{
 				XMLSaveSystem.DeleteFile(titleText);
+				NoteSettings.ShowWindow();
+				closed = true;
+			}
+			
+			// todo: improve temporary fix maybe
+			if(GUILayout.Button("Save", GUILayout.Width(48)))
+			{
+				NoteSaveFile saveFile = new NoteSaveFile();
+				
+				List<string> names = new List<string>();
+				List<bool> completed = new List<bool>();
+
+				foreach(CheckList data in checkListData)
+				{
+					names.Add(data.text);
+					completed.Add(data.completed);
+				}
+
+				saveFile.UpdateData(titleText, descriptionText, names.ToArray(), completed.ToArray(), backgroundCol, titleCol);
+				XMLSaveSystem.SaveFile(titleText, saveFile);
 				NoteSettings.ShowWindow();
 				closed = true;
 			}
