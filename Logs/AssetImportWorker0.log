@@ -92,3 +92,4 @@ Received Import Request.
 Start importing Assets/TodoWorks/Editor/Scripts/NoteManager.cs using Guid(47254dbc6e324cc7b89edc8d23341fea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '731a2845769a643d095c12a898848105') in 0.058318 seconds
   Import took 0.062294 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
