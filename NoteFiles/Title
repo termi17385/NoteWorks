@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NoteSaveFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <noteName>Title</noteName>
+  <noteDescription>Cool Description here for the game</noteDescription>
+  <backgroundColor>
+    <r>0.237</r>
+    <g>0.160669</g>
+    <b>0.3951584</b>
+    <a>0.2</a>
+  </backgroundColor>
+  <titleTextColor>
+    <r>0.2</r>
+    <g>2</g>
+    <b>0</b>
+    <a>1</a>
+  </titleTextColor>
+  <checkList>
+    <CheckList>
+      <text>8huhiu</text>
+      <completed>true</completed>
+    </CheckList>
+    <CheckList>
+      <text>jnui9j9j</text>
+      <completed>false</completed>
+    </CheckList>
+    <CheckList>
+      <text>Text inputted Here</text>
+      <completed>true</completed>
+    </CheckList>
+  </checkList>
+</NoteSaveFile>

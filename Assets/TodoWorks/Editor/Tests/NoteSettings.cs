@@ -48,8 +48,6 @@ namespace TodoWorks.Editor.Tests
 
 			setupSettings.checkListText = Array.Empty<string>();
 			setupSettings.loadCards.target = false;
-			//NoteManager.LoadFileToDictionary();
-			//NoteManager.ClearDictionary();
 		}
 		
 		private void OnEnable()
@@ -94,6 +92,9 @@ namespace TodoWorks.Editor.Tests
 			//newNote.titleCol = _tCol;
 		}
 
+		/// <summary> loads the specified note and displays the
+		/// title description and its checklist information </summary>
+		/// <param name="_data">the specified note to load</param>
 		private void LoadNote(NoteSaveFile _data)
 		{
 			NoteWindow loadedNote = GetWindow<NoteWindow>("Loaded Note: " + _data.noteName);
@@ -167,9 +168,7 @@ namespace TodoWorks.Editor.Tests
 			if(EditorGUILayout.BeginFadeGroup(loadCards.faded)) 
 				foreach(var fName in loadedFileNames)
 					if(GUILayout.Button(fName))
-					{
 						LoadNote(XMLSaveSystem.LoadFile(fName));
-					} 
 			
 			EditorGUILayout.EndFadeGroup();
 			

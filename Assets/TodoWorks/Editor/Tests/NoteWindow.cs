@@ -32,26 +32,12 @@ namespace TodoWorks.Editor.Tests
 		/// <summary> A list of the check list data struct
 		/// for storing the data of the checklist </summary>
 		public List<CheckList> checkListData = new List<CheckList>();
-
 		public bool closed = false;
 
-		// public void SendDataToManager()
-		// {
-		// 	var thisWindow = GetWindow<NoteWindow>();
-		// 	NoteManager.AddToDictionary(thisWindow.titleText, thisWindow.checkListData);
-		// }
-
-		
-		public void SetChecklistUp(string[] _data)
-		{
-			for(int i = 0; i < _data.Length; i++)
-			{
-				checkListData.Add(new CheckList
-				{
-					text = _data[i]
-				});
-			}
-		}
+	
+		/// <summary> Used to setup the check
+		/// lists with the new data </summary>
+		public void SetChecklistUp(string[] _data) { foreach (var t in _data) checkListData.Add(new CheckList {text = t}); }
 
 		/// <summary> Handles customising the
 		/// title text and background </summary>
@@ -76,12 +62,7 @@ namespace TodoWorks.Editor.Tests
 
 			return style;
 		}
-
-		private void Update()
-		{
-			if(closed) this.Close();
-		}
-
+		private void Update() { if(closed) this.Close(); }
 		private void OnGUI()
 		{
 			GUILayout.Label(titleText, TitleStyle(titleCol, backgroundCol, 25));
