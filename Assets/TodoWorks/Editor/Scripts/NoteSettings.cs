@@ -32,7 +32,7 @@ namespace TodoWorks.Editor.Tests
 		private AnimBool loadCards;
 		private AnimBool newCard;
 		
-		private List<string> noteNames = new List<string>();
+		//private List<string> noteNames = new List<string>();
 		private string[] checkListText;
 		private string[] loadedFileNames;
 
@@ -179,7 +179,7 @@ namespace TodoWorks.Editor.Tests
 			if(EditorGUILayout.BeginFadeGroup(newCard.faded))
 			{
 
-			#region note creation
+				#region note creation
 
 				// todo: change this to be a placeholder that displays over the top
 				if(titleText == "") titleText = "Title here....";
@@ -189,7 +189,7 @@ namespace TodoWorks.Editor.Tests
 				descriptionText = GUILayout.TextArea(descriptionText, TextStyle());
 				if(GUILayout.Button("Save")) CreateNewNote(descriptionText, titleText, backgroundColor, titleTextColor);
 
-			#endregion
+				#endregion
 
 			#region Text and Color options
 

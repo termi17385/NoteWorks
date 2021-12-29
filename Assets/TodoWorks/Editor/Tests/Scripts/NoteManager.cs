@@ -8,6 +8,7 @@ using System;
 namespace TodoWorks.Editor.Scripts
 {
 	// todo: add saving and loading of the note data to file
+	// deprecated: needs to be deleted
 	public static class NoteManager
 	{
 		/*public static Dictionary<string, List<CheckListData>> noteData = new Dictionary<string, List<CheckListData>>();

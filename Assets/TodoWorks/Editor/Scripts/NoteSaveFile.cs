@@ -53,6 +53,10 @@ namespace TodoWorks.Editor.Tests
 			}
 		}
 		
+		/// <summary> Used to update the data in the
+		/// saved file overriding its values </summary>
+		/// <param name="_names">checklist descriptions</param>
+		/// <param name="_completed">checklist bools</param>
 		public void UpdateData(string _title, string _description, string[] _names, bool[] _completed, Color _bgColor, Color _ttColor)
 		{
 			noteName = _title;
@@ -96,6 +100,8 @@ namespace TodoWorks.Editor.Tests
 			return new DirectoryInfo(filePath + "/" + filename).Exists;
 		}
 		
+		/// <summary> Searches for files in the folder path and returns
+		/// an array of the file names for loading later </summary>
 		public static string[] SearchForFiles()
 		{
 			CheckForDirectory();
@@ -107,6 +113,11 @@ namespace TodoWorks.Editor.Tests
 			return fileNames;
 		}
 
+		/// <summary> Loads any files
+		/// matching the name </summary>
+		/// <param name="_fileName">the file to load</param>
+		/// <returns>returns a converted version of the xml
+		/// file to be loaded back into the script</returns>
 		public static NoteSaveFile LoadFile(string _fileName)
 		{
 			CheckForDirectory();
@@ -120,6 +131,10 @@ namespace TodoWorks.Editor.Tests
 			return noteSaveFile;
 		}
 
+		/// <summary> Handles the deletion of any
+		/// files in the directory </summary>
+		/// <param name="_fileName">the file to delete</param>
+		/// <param name="_allFiles">if we want to delete everything or not</param>
 		public static void DeleteFile(string _fileName, bool _allFiles = false)
 		{
 			var fileName = RemoveSpecialChar(_fileName);
@@ -147,6 +162,9 @@ namespace TodoWorks.Editor.Tests
 			}
 		}
 
+		/// <summary> Handles making sure that files arent stored with special characters
+		/// to solve issues with finding the files later </summary>
+		/// <param name="_strIn">takes in a string to convert into standard characters</param>
 		private static string RemoveSpecialChar(string _strIn)
 		{
 			// Replace invalid characters with empty strings.
@@ -161,9 +179,11 @@ namespace TodoWorks.Editor.Tests
 			}
 		}
 	
+		/// <summary> Scans for a Folder
+		/// in the project files </summary>
 		private static void CheckForDirectory()
 		{
-			// creates a new folder to save files to if one doesnt exist
+			// creates a new folder to save files to if one doesn't exist
 			var folderExists = Directory.Exists(filePath);
 			if(!folderExists) Directory.CreateDirectory(filePath);
 		}
